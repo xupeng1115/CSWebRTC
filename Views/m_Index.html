@@ -31,53 +31,48 @@
             </header>
 
             <!--Icon-->
-            <!-- <section class="pic-container">
+            <section class="pic-container" style="display:none;" v-show="!videoKey">
                 <div class="pic pic01"><img src="../../Content/img/m_pic01.png" class="pic-img"></div>
                 <div class="pic pic02"><img src="../../Content/img/m_pic02.png" class="pic-img"></div>
                 <div class="pic pic03"><img src="../../Content/img/m_pic03.png" class="pic-img"></div>
-            </section> -->
+            </section>
 
             <!-- CountDown -->
-            <!-- <section class="flo-container time-container">
+            <section class="flo-container time-container" style="display:none;" v-show="timeKey">
                 <div class="text">距离视频面试开始还有</div>
-                <div class="time-inner" id="countdown">3小时50分</div>
-            </section> -->
+                <div class="time-inner" id="countdown"></div>
+            </section>
 
             <!-- Enter -->
-            <!-- <section class="flo-container enter-container">
+            <section class="flo-container enter-container" style="display:none;" v-show="!timeKey">
                 <div class="text">面试已经开始</div>
-                <div class="btn-enter">立即进入</div>
-            </section> -->
+                <div class="btn-enter" v-on:click="beginInterview">立即进入</div>
+            </section>
 
             <!-- End -->
-            <!-- <section class="flo-container end-container">
+            <section class="flo-container end-container" style="display:none;" v-show="exitKey">
                 <div class="end-img"></div>
                 <div class="text">面试结束</div>
-            </section> -->
+            </section>
 
             <!-- Warn -->
-            <!-- <section class="warn-container">
+            <section class="warn-container" style="display:none;" v-show="fullKey">
                 <div class="warn-box">
-                    <div class="btn-warn-close"></div>
+                    <div class="btn-warn-close" v-on:click="closeWarn"></div>
                     <div class="warn-img"></div>
                     <div class="text">人数已满</div>
                 </div>
-            </section> -->
+            </section>
 
             <!-- Bottom -->
-            <!-- <section class="bottom-container">
+            <section class="bottom-container" style="display:none;" v-show="videoKey">
                 <div class="bottom-box">
-                    <div class="top"></div>
-                    <div class="left">
-                        <span class="icon icon-KT-User"></span>
-                    </div>
                     <div class="middle">
                         <span class="icon icon-KT-User"></span>
                         <span class="text">共21人参加面试</span>
                     </div>
-                    <div class="btn-exit"><img src="../../Content/img/exit.png" class="exit-img"></div>
                 </div>
-            </section> -->
+            </section>
 
             <!-- Hide input -->
             <!-- <section class="hide-container">
@@ -86,7 +81,7 @@
 
             <!-- video -->
                 
-            <section class="video-container" style="display:block;">
+            <section class="video-container" style="display:none;" v-show="videoKey">
                 <div class="video-wrapper clearbox">
                     <div class="big">
                         <div class="default"></div>
@@ -98,7 +93,7 @@
 
                         <!-- Big Video -->
                         <div id="videoBig">
-                            <video src=""></video>
+                            <video src="../../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay"></video>
                         </div>
                     </div>
                     <div class="list clearbox" id="video-box">
@@ -114,18 +109,25 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name overflow-text">DavidDavidDavidDavidDavidDavidDavidDavidDavid</div>
 
-                                <!-- Item Video -->
+
                                 <div id="video01" class="video-layer">
-                                    <video src=""></video>
+                                    <video src="../../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay"></video>
                                 </div>
                             </li>
                             <li class="video-item video-open">
@@ -138,18 +140,25 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
+
                                 <div id="video02" class="video-layer">
-                                    <video src=""></video>
+                                    <video src="../../Content/video/4.mp4" data-videotype="remote" autoplay="autoplay"></video>
                                 </div>
                             </li>
                             <li class="video-item video-open">
@@ -162,16 +171,23 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
+
                                 <div id="video03" class="video-layer">
                                     <video src=""></video>
                                 </div>
@@ -186,16 +202,23 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
+
                                 <div id="video04" class="video-layer">
                                     <video src=""></video>
                                 </div>
@@ -210,16 +233,22 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
                                 <div id="video05" class="video-layer">
                                     <video src=""></video>
                                 </div>
@@ -234,16 +263,22 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
                                 <div id="video06" class="video-layer">
                                     <video src=""></video>
                                 </div>
@@ -258,16 +293,22 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
                                 <div id="video07" class="video-layer">
                                     <video src=""></video>
                                 </div>
@@ -282,16 +323,23 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
+
                                 <div id="video08" class="video-layer">
                                     <video src=""></video>
                                 </div>
@@ -306,16 +354,23 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
+
                                 <div id="video09" class="video-layer">
                                     <video src=""></video>
                                 </div>
@@ -330,23 +385,30 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
+
                                 <div id="video10" class="video-layer">
                                     <video src=""></video>
                                 </div>
                             </li>
                             <li class="video-item video-open">
                                 <div class="item-default"></div>
-                                <!-- <div class="audio-layer"></div> -->
+                                <div class="audio-layer"></div>
                                 <div class="ani-box">
                                     <span class="circle c1"></span>
                                     <span class="circle c2"></span>
@@ -354,23 +416,29 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
                                 <div id="video11" class="video-layer">
                                     <video src=""></video>
                                 </div>
                             </li>
                             <li class="video-item video-open">
                                 <div class="item-default"></div>
-                                <!-- <div class="audio-layer"></div> -->
+                                <div class="audio-layer"></div>
                                 <div class="ani-box">
                                     <span class="circle c1"></span>
                                     <span class="circle c2"></span>
@@ -378,16 +446,23 @@
                                     <span class="circle c4"></span>
                                 </div>
                                 <div class="menu-box clearbox">
-                                    <div class="switch item">
-                                        <span class="icon-PingMuFangDa"></span>
+                                    <div class="more">
+                                        <span class="icon-more"></span>
                                     </div>
-                                    <div class="out item">
-                                        <span class="icon-KT-Out"></span>
+                                    <div class="func-box">
+                                        <div class="switch item">
+                                            <span class="icon-PingMuFangDa"></span>
+                                            <span class="text">放大</span>
+                                        </div>
+                                        <div class="out item">
+                                            <span class="icon-KT-Out"></span>
+                                            <span class="text">移除</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="name">David</div>
 
-                                <!-- Item Video -->
+
                                 <div id="video12" class="video-layer">
                                     <video src=""></video>
                                 </div>
@@ -400,7 +475,6 @@
         </div>
     </div>
 
-    <script src="../../Scripts/libs/jquery.nicescroll.js"></script>
     <script src="../../Scripts/js/Time.js"></script>
     <script src="../../Scripts/js/m_Index.js?v=20180705"></script>
 

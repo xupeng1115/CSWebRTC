@@ -1,8 +1,21 @@
 (function(T){
     T.stringClock='';
     T.stringCountDown='';
+    T.endTime=new Date().getTime()+1000*60;
+    T.initDate=function(){
+        return new Date(1970,1,1,0,0,0);
+    };
     T.getCurrentDate=function(){
         return new Date();
+    };
+    T.compareTime=function(End){
+        if(typeof End === "number"&&End>this.initDate().getTime()){
+            if(this.getCurrentDate().getTime()<End){
+                return true;
+            }else{
+                return false;
+            }
+        }
     };
     T.getCurrentTime=function(){
         return this.getCurrentDate().formatHours()+':'+this.getCurrentDate().formatMinutes()+':'+this.getCurrentDate().formatSeconds();
@@ -36,76 +49,52 @@
         }
         document.getElementById(id).innerHTML=this.stringCountDown;
     };
+    T.diffTime=function(){
+        return parseInt((this.endTime-this.getCurrentDate().getTime())/1000);
+    };
+    T.countDownSeconds=function(){
+        var oTime=this.diffTime();
+        if(oTime%60<10){
+            return '0'+parseInt(oTime%60);
+        }else{
+            return ''+parseInt(oTime%60);
+        }
+    };
+
+    T.countDownMinutes=function(){
+        var oTime=this.diffTime();
+        if(parseInt(oTime/60)%60<10){
+            return '0'+parseInt(oTime/60)%60;
+        }else{
+            return ''+parseInt(oTime/60)%60;
+        }
+    };
+
+    T.countDownHours=function(){
+        var oTime=this.diffTime();
+        if(parseInt(oTime/60/60)%24<10){
+            return '0'+parseInt(oTime/60/60)%24;
+        }else{
+            return ''+parseInt(oTime/60/60)%24;
+        }
+    };
+
+    T.countDownDays=function(){
+        var oTime=this.diffTime();
+        if(parseInt(oTime/60/60/24)>0){
+            return ''+parseInt(oTime/60/60/24);
+        }else{
+            return false;
+        }
+    };
+    
     T.getCountDown=function(o){
         var _self=this;
-        var oNum=o.End.getTime()-this.getCurrentDate().getTime();
-        var oDays='',
-            oHours,
-            oMinutes,
-            oSeconds,
-            oTime=parseInt(oNum/1000);
+        _self.endTime=o.End;
 
-        if(oNum>0){
+        if(_self.compareTime(o.End)){
 
-            if(oTime/60/60/24<30){
-                if(oTime/60/60/24<1){
-                    oDays='';
-                }else{
-                    if(oTime/60/60/24<10){
-                        oDays='0'+parseInt(oTime/60/60/24)+'天';
-                    }else{
-                        oDays=''+parseInt(oTime/60/60/24)+'天';
-                    }
-                }
-            }else{
-                oDays='';
-            }
-
-            if(oTime/60/60<10){
-                if(oTime/60/60<1){
-                    oHours='00';
-                }else{
-                    oHours='0'+parseInt(oTime/60/60);
-                }
-            }else{
-                if(oTime/60/60<60){
-                    oHours=''+parseInt(oTime%(60*60));
-                }else{
-                    if(parseInt(oTime/60/60)%60<10){
-                        oHours='0'+parseInt(oTime/60/60)%60;
-                    }else{
-                        oHours=''+parseInt(oTime/60/60)%60;
-                    }
-                }
-                
-            }
-            
-            if(oTime/60<10){
-                if(oTime/60<1){
-                    oMinutes='00';
-                }else{
-                    oMinutes='0'+parseInt(oTime/60);
-                }
-            }else{
-                if(oTime/60<60){
-                    oMinutes=''+parseInt(oTime%60);
-                }else{
-                    if(parseInt(oTime/60)%60<10){
-                        oMinutes='0'+parseInt(oTime/60)%60;
-                    }else{
-                        oMinutes=''+parseInt(oTime/60)%60;
-                    }
-                    
-                }
-            }
-    
-            if(oTime%60<10){
-                oSeconds='0'+parseInt(oTime%60);
-            }else{
-                oSeconds=''+parseInt(oTime%60);
-            }
-
-            _self.stringCountDown=oDays+oHours+'小时'+oMinutes+'分钟'+oSeconds+'秒';
+            _self.stringCountDown=(_self.countDownDays()?_self.countDownDays()+'天':'')+_self.countDownHours()+'小时'+_self.countDownMinutes()+'分钟'+_self.countDownSeconds()+'秒';
             _self.fillCountDown(o.ID);
 
             return setTimeout(function(){
@@ -113,9 +102,8 @@
             },1000);
 
         }else{
-
+            return o.EndFunc(_self);
         }
-
     };
 
     Date.prototype.formatTime=function(time){

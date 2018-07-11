@@ -14,7 +14,7 @@ body{
 	position:relative;
 	width:100%;
 	height:100%;
-	min-width:1300px;
+	min-width:1340px;
 	min-height:653px;
 	font-family:"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft Yahei",sans-serif;
 }
@@ -103,12 +103,14 @@ img{
 	height:100%;
 	background:url(../img/bg.png)no-repeat center center;
 	background-size:cover;
+	overflow:hidden;
 }
 
 .container .wrapper{
 	position:relative;
 	width:100%;
 	height:100%;
+	overflow:hidden;
 }
 
 /****************************Logo****************************/
@@ -117,6 +119,7 @@ section.logo-container{
 	top:12px;
 	left:25px;
 	z-index:10;
+	overflow:hidden;
 }
 
 section.logo-container a.logo-href{
@@ -488,11 +491,11 @@ section.video-container .video-wrapper .left .audio-box{
 }
 
 section.video-container .video-wrapper .left .audio-open{
-	background:rgba(0,0,0,0.3);
+	background:rgba(0,0,0,0.5);
 }
 
 section.video-container .video-wrapper .left .audio-open:hover{
-	background:rgba(0,0,0,0.5);
+	background:rgba(0,0,0,0.65);
 }
 
 section.video-container .video-wrapper .left .audio-close{
@@ -535,14 +538,14 @@ section.video-container .video-wrapper .left .name-big{
 	border-radius:10px;
 	font-size:12px;
 	color:#fff;
-	background:rgba(0,0,0,0.3);
+	background:rgba(0,0,0,0.5);
 
 	transition:all 0.3s;
 	-webkit-transition:all 0.3s;
 }
 
 section.video-container .video-wrapper .left:hover .name-big{
-	background:rgba(0,0,0,0.5);
+	background:rgba(0,0,0,0.65);
 }
 
 section.video-container .video-wrapper .right{
@@ -638,7 +641,7 @@ section.video-container .video-wrapper .right ul.video-list li.video-item .menu-
 	height:34px;
 	line-height:34px;
 	border-radius:100%;
-	background:rgba(0,0,0,0.3);
+	background:rgba(0,0,0,0.5);
 	text-align:center;
 	cursor:pointer;
 
@@ -651,7 +654,7 @@ section.video-container .video-wrapper .right ul.video-list li.video-item .menu-
 }
 
 section.video-container .video-wrapper .right ul.video-list li.video-item .menu-box .item:hover{
-	background:rgba(0,0,0,0.5);
+	background:rgba(0,0,0,0.65);
 }
 
 section.video-container .video-wrapper .right ul.video-list li.video-open:hover .menu-box{
@@ -675,7 +678,7 @@ section.video-container .video-wrapper .right ul.video-list li.video-item .name{
 	border-radius:10px;
 	font-size:12px;
 	color:#fff;
-	background:rgba(0,0,0,0.3);
+	background:rgba(0,0,0,0.5);
 
 	transition:all 0.3s;
 	-webkit-transition:all 0.3s;
@@ -704,7 +707,7 @@ section.video-container .video-wrapper .right ul.video-list li.video-item .audio
 	background-size:100% 100%;
 }
 section.video-container .video-wrapper .right ul.video-list li.video-item:hover .name{
-	background:rgba(0,0,0,0.5);
+	background:rgba(0,0,0,0.65);
 }
 
 section.video-container .video-wrapper .right ul.video-list li.video-item .ani-box{
