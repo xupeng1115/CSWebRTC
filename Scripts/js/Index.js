@@ -9,13 +9,13 @@ var app=new Vue({
         videoKey:false,                     //进入面试：true,   没有进入面试：false
         exitTime:'',                        //面试结束时间戳
         exitKey:false,                      //是否退出面试  true：退出，false:不退出
-        fullKey:false,                   //true:提示人满了，false:隐藏显示框
+        fullKey:false,                      //true:提示人满了，false:隐藏显示框
     },
     computed:{
         
     },
     watch:{
-
+        
     },
     methods:{
         beginInterview:function(){
