@@ -1,5 +1,5 @@
 //视频面试截止时间
-var oEnd=new Date(2018, 6, 10, 17, 4, 30).getTime();
+var oEnd=new Date(2018, 6, 11, 17, 4, 30).getTime();
 
 // Vue绑定
 var app=new Vue({
@@ -43,8 +43,18 @@ var app=new Vue({
     }
 });
 
-
 $(function(){
+
+    //设置视频面试尺寸
+    (function(){
+        // setEle();
+    }())
+
+    //自适应视频面试尺寸
+    $(window).on("resize", function () {
+        // setEle();
+    });
+
     //启动时钟
     Time.getCurrentClock("#clock");
     //启动倒计时
@@ -65,5 +75,21 @@ $(function(){
         cursorborderradius: "5px",
         autohidemode: true,
     });
+
+    function setEle(){
+        var RATIO1=480/1296;
+        var oCWidth=$(".video-container").width();
+        var oCHeight=$("body").height();
+        var oVHeight=oCWidth*RATIO1;
+        var oLeft=oCWidth/2;
+        var oTop=(oCHeight-oVHeight)/2-25;
+
+        $(".video-container").css({
+            "height":oCWidth*RATIO1+"px",
+            "top":oTop+"px",
+            "marginLeft":-oLeft+"px",
+        });
+    }
 });
+
 

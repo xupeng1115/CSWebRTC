@@ -29,14 +29,14 @@
             <!--Icon-->
             <section class="pic-container">
                 <!-- No Video -->
-                <div class="no-video" style="display:none;" v-show="!videoKey">
+                <div class="no-video" style="display:none;" v-show="videoKey">
                     <div class="pic pic01"><img src="../Content/img/pic01.png" class="pic-img"></div>
                     <div class="pic pic02"><img src="../Content/img/pic02.png" class="pic-img"></div>
                     <div class="pic pic03"><img src="../Content/img/pic03.png" class="pic-img"></div>
                 </div>
                 
                 <!-- Have Video -->
-                <div class="have-video" style="display:none;" v-show="videoKey">
+                <div class="have-video" style="display:none;" v-show="!videoKey">
                     <div class="pic pic06"><img src="../Content/img/pic06.png" class="pic-img"></div>
                     <div class="pic pic07"><img src="../Content/img/pic07.png" class="pic-img"></div>
                     <div class="pic pic08"><img src="../Content/img/pic08.png" class="pic-img"></div>
@@ -60,7 +60,7 @@
             </section>
 
             <!-- Enter -->
-            <section class="flo-container enter-container" style="display:none;" v-show="!timeKey">
+            <section class="flo-container enter-container" style="display:none;" v-show="timeKey">
                 <div class="text">面试已经开始</div>
                 <div class="btn-enter" v-on:click="beginInterview">立即进入</div>
             </section>
@@ -81,7 +81,7 @@
             </section>
 
             <!-- Bottom -->
-            <section class="bottom-container" style="display:none;" v-show="videoKey">
+            <section class="bottom-container" style="display:none;" v-show="!videoKey">
                 <div class="bottom-box">
                     <div class="top"></div>
                     <div class="left">
@@ -101,19 +101,19 @@
             </section>
 
             <!-- video -->
-            <section class="video-container" style="display:none;" v-show="videoKey">
+            <section class="video-container" style="display:none;" v-show="!videoKey">
                 <div class="video-wrapper clearbox">
                     <div class="left">
                         <div class="default"></div>
                         <div class="audio-box audio-close">
-                            <span class="icon icon-MaiKeFeng icon-open" title="音频"></span>
-                            <!-- <span class="icon icon-MaiKeFengGB icon-close" title="静音""></span> -->
+                            <span class="icon icon-MaiKeFeng icon-open"></span>
+                            <!-- <span class="icon icon-MaiKeFengGB icon-close"></span> -->
                         </div>
                         <div class="name-big overflow-text">David</div>
 
                         <div id="videoBig">
                                 <!-- <video src="../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay"></video> -->
-                            <video src="../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay"></video>
+                            <video src="../Content/video/3.mp4" data-videotype="remote" controls></video>
                         </div>
                     </div>
                     <div class="right" id="video-box">
@@ -140,7 +140,7 @@
 
 
                                 <div id="video01" class="video-layer">
-                                    <video src="../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay"></video>
+                                    <video src="../Content/video/3.mp4" data-videotype="remote" controls></video>
                                 </div>
                             </li>
                             <li class="video-item video-open">
@@ -164,7 +164,7 @@
 
 
                                 <div id="video02" class="video-layer">
-                                    <video src="../Content/video/4.mp4" data-videotype="remote" autoplay="autoplay"></video>
+                                    <video src="../Content/video/4.mp4" data-videotype="remote" controls></video>
                                 </div>
                             </li>
                             <li class="video-item video-open">
