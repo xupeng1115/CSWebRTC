@@ -57,6 +57,7 @@ $(function(){
 
     //启动时钟
     Time.getCurrentClock("#clock");
+    
     //启动倒计时
     Time.getCountDown({
         End:oEnd,
@@ -65,6 +66,7 @@ $(function(){
             app.timeKey=self.compareTime(oEnd);
         }
     });
+
     //美化滚动条
     $('#video-box').niceScroll({
         cursorcolor: "#000",
@@ -90,6 +92,7 @@ $(function(){
             "marginLeft":-oLeft+"px",
         });
     }
+
 });
 
 
