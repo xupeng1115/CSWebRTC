@@ -10,7 +10,7 @@ var app=new Vue({
         exitTime:'',                        //面试结束时间戳
         exitKey:false,                      //是否退出面试  true：退出，false:不退出
         fullKey:false,                      //true:提示人满了，false:隐藏显示框
-        endVideoKey:true,                  //true:显示结束面试框，false:隐藏
+        endVideoKey:false,                  //true:显示结束面试框，false:隐藏
     },
     computed:{
         
@@ -45,13 +45,13 @@ var app=new Vue({
 
         },
         cancelEndVideo:function(){
-
+            this.endVideoKey=false;
         },
         confrimEndVideo:function(){
-
+            this.endVideoKey=false;
         },
         EndVideo:function(){
-
+            this.endVideoKey=true;
         }
 
     }

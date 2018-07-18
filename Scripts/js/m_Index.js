@@ -47,7 +47,7 @@ var app=new Vue({
             this.endVideoKey=false;
         },
         confrimEndVideo:function(){
-
+            this.endVideoKey=false;
         },
         EndVideo:function(){
             this.endVideoKey=true;
