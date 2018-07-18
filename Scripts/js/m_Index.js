@@ -1,5 +1,5 @@
 //视频面试截止时间
-var oEnd=new Date(2018, 6, 11, 15, 03, 0).getTime();
+var oEnd=new Date(2018, 6, 16, 4, 4, 30).getTime();
 // Vue绑定
 var app=new Vue({
     el:"#app",
@@ -9,6 +9,7 @@ var app=new Vue({
         exitTime:'',                        //面试结束时间戳
         exitKey:false,                      //是否退出面试  true：退出，false:不退出
         fullKey:false,                   //true:提示人满了，false:隐藏显示框
+        endVideoKey:false,                  //true:显示结束面试框，false:隐藏
     },
     computed:{
         
@@ -38,12 +39,33 @@ var app=new Vue({
         },
         closeWarn:function(){
             this.fullKey=false;
+        },
+        beginTimer:function(){
+
+        },
+        cancelEndVideo:function(){
+            this.endVideoKey=false;
+        },
+        confrimEndVideo:function(){
+
+        },
+        EndVideo:function(){
+            this.endVideoKey=true;
         }
     }
 });
 
 
 $(function(){
+
+    //启动计时
+    Time.getTimer({
+        Begin:oEnd,
+        ID:"#timer",
+        EndFunc:function(self){
+            
+        }
+    });
     //启动时钟
     // Time.getCurrentClock("#clock");
     //启动倒计时

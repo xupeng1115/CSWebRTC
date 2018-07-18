@@ -14,7 +14,6 @@
     <script src="../Scripts/libs/jquery-1.11.3.min.js"></script>
     <script src="../Scripts/libs/vue.min.js"></script>
     <script src="../Scripts/libs/communication.js"></script>
-    
 </head>
 <body>
     <div class="container" id="app">
@@ -22,12 +21,15 @@
 
             <!-- Header -->
             <header class="top-container">
-                <a href="https://www.vxhcm.com" class="top-back">
+                <div class="top-back" v-on:click="exitInterview">
                     <img src="../Content/img/m_back.png" class="top-back-img">
-                </a>
+                </div>
                 <a href="https://www.vxhcm.com" class="top-logo">
-                    <img src="../Content/img/m_logo.png" class="top-logo-img">
+                    <img src="../Content/img/m_video_logo.png" class="top-logo-img">
                 </a>
+                <div class="btn-end-video" v-on:click="EndVideo" style="display:none;" v-show="videoKey">
+                    <img src="../Content/img/m_video_end.png" class="top-end-img">
+                </div>
             </header>
 
             <!--Icon-->
@@ -64,12 +66,29 @@
                 </div>
             </section>
 
+            <!-- End Video -->
+            <section class="end-video-container" style="display:none;" v-show="endVideoKey">
+                <div class="warn-box">
+                    <div class="btn-warn-close" v-on:click="cancelEndVideo"></div>
+                    <div class="warn-img"></div>
+                    <div class="text">是否确定结束本次面试</div>
+                    <div class="btn-box">
+                        <div class="btn-end-confirm btn-end" v-on:click="confrimEndVideo">确定</div>
+                        <div class="btn-end-cancel btn-end" v-on:click="cancelEndVideo">取消</div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Bottom -->
             <section class="bottom-container" style="display:none;" v-show="videoKey">
                 <div class="bottom-box">
-                    <div class="middle">
+                    <div class="left">
                         <span class="icon icon-KT-User"></span>
                         <span class="text">共21人参加面试</span>
+                    </div>
+                    <div class="right">
+                        <span class="text">面试已进行</span>
+                        <span id="timer" class="bottom-timer"></span>
                     </div>
                 </div>
             </section>
@@ -80,7 +99,6 @@
             </section> -->
 
             <!-- video -->
-                
             <section class="video-container" style="display:none;" v-show="videoKey">
                 <div class="video-wrapper clearbox">
                     <div class="big">
@@ -93,7 +111,7 @@
 
                         <!-- Big Video -->
                         <div id="videoBig">
-                            <video src="../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay"></video>
+                            <video src="../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay" style="width:100%;height:100%;object-fit:cover;"></video>
                         </div>
                     </div>
                     <div class="list clearbox" id="video-box">
@@ -125,9 +143,8 @@
                                 </div>
                                 <div class="name overflow-text">DavidDavidDavidDavidDavidDavidDavidDavidDavid</div>
 
-                                
                                 <div id="video01" class="video-layer">
-                                    <video src="../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay"></video>
+                                    <video src="../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay" style="width:100%;height:100%;object-fit:cover;"></video>
                                 </div>
                             </li>
                             <li class="video-item video-open">
@@ -156,9 +173,8 @@
                                 </div>
                                 <div class="name">David</div>
 
-
                                 <div id="video02" class="video-layer">
-                                    <video src="../Content/video/4.mp4" data-videotype="remote" autoplay="autoplay"></video>
+                                    <video src="../Content/video/4.mp4" data-videotype="remote" autoplay="autoplay" style="width:100%;height:100%;object-fit:cover;"></video>
                                 </div>
                             </li>
                             <li class="video-item video-open">

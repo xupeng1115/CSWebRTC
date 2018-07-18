@@ -1,7 +1,9 @@
 (function(T){
     T.stringClock='';
     T.stringCountDown='';
+    T.stringTimer='';
     T.endTime=new Date().getTime()+1000*60;
+    T.beginTime=new Date().getTime()-1000*60;
     T.initDate=function(){
         return new Date(1970,1,1,0,0,0);
     };
@@ -82,7 +84,11 @@
     T.countDownDays=function(){
         var oTime=this.diffTime();
         if(parseInt(oTime/60/60/24)>0){
-            return ''+parseInt(oTime/60/60/24);
+            if(parseInt(oTime/60/60/24)<10){
+                return '0'+parseInt(oTime/60/60/24);
+            }else{
+                return ''+parseInt(oTime/60/60/24);
+            }
         }else{
             return false;
         }
@@ -104,6 +110,75 @@
         }else{
             return o.EndFunc(_self);
         }
+    };
+
+    T.timerSeconds=function(){
+        var oTime=this.reduceTimer();
+        if(oTime%60<10){
+            return '0'+parseInt(oTime%60);
+        }else{
+            return ''+parseInt(oTime%60);
+        }
+    };
+
+    T.timerMinutes=function(){
+        var oTime=this.reduceTimer();
+        if(parseInt(oTime/60)%60<10){
+            return '0'+parseInt(oTime/60)%60;
+        }else{
+            return ''+parseInt(oTime/60)%60;
+        }
+    };
+
+    T.timerHours=function(){
+        var oTime=this.reduceTimer();
+        if(parseInt(oTime/60/60)%24<10){
+            return '0'+parseInt(oTime/60/60)%24;
+        }else{
+            return ''+parseInt(oTime/60/60)%24;
+        }
+    };
+
+    T.timerDays=function(){
+        var oTime=this.reduceTimer();
+        if(parseInt(oTime/60/60/24)>0){
+            if(parseInt(oTime/60/60/24)<10){
+                return '0'+parseInt(oTime/60/60/24);
+            }else{
+                return ''+parseInt(oTime/60/60/24);
+            }
+            
+        }else{
+            return false;
+        }
+    };
+
+    T.reduceTimer=function(){
+        return parseInt((this.getCurrentDate().getTime()-this.beginTime)/1000);
+    };
+
+    T.getTimer=function(o){
+        var _self=this;
+        _self.beginTime=o.Begin;
+
+        if(typeof o.Begin === "number"&&o.Begin>this.initDate().getTime()){
+            if(_self.getCurrentDate().getTime()>o.Begin){
+
+                _self.stringTimer=(_self.timerDays()?_self.timerDays()+':':'')+_self.timerHours()+':'+_self.timerMinutes()+':'+_self.timerSeconds();
+                _self.fillTimer(o.ID);
+    
+                return setTimeout(function(){
+                    _self.getTimer(o);
+                },1000);
+            }
+        }
+    };
+
+    T.fillTimer=function(id){
+        if(id.charAt(0)==='#'){
+            id=id.substring(1);
+        }
+        document.getElementById(id).innerHTML=this.stringTimer;
     };
 
     Date.prototype.formatTime=function(time){

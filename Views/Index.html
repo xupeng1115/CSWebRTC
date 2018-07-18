@@ -80,18 +80,33 @@
                 </div>
             </section>
 
+            <!-- End Video -->
+            <section class="end-video-container" style="display:none;" v-show="endVideoKey">
+                <div class="warn-box">
+                    <div class="btn-warn-close" v-on:click="cancelEndVideo"></div>
+                    <div class="warn-img"></div>
+                    <div class="text">是否确定结束本次面试</div>
+                    <div class="btn-box">
+                        <div class="btn-end-confirm btn-end" v-on:click="confrimEndVideo">确定</div>
+                        <div class="btn-end-cancel btn-end" v-on:click="cancelEndVideo">取消</div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Bottom -->
             <section class="bottom-container" style="display:none;" v-show="!videoKey">
                 <div class="bottom-box">
                     <div class="top"></div>
                     <div class="left">
-                        <span class="icon icon-KT-User"></span>
+                        <span class="text">面试已进行</span>
+                        <span id="timer" class="bottom-timer"></span>
                     </div>
                     <div class="middle">
                         <span class="icon icon-KT-User"></span>
                         <span class="text">共21人参加面试</span>
                     </div>
                     <div class="btn-exit" v-on:click="exitInterview"><img src="../Content/img/exit.png" class="exit-img"></div>
+                    <div class="btn-end"  v-on:click="EndVideo"><img src="../Content/img/end_button.png" class="end-img"></div>
                 </div>
             </section>
 
