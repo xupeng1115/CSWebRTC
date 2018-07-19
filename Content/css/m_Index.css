@@ -294,6 +294,75 @@ section.warn-container .warn-box .text{
 	text-align:center;
 }
 
+/****************************Dialog******************************/
+
+section.dialog-container{
+	position:fixed;
+	top:44px;
+	left:0;
+	z-index:1000;
+	width:100%;
+	height:100%;
+  	background-color:rgba(0,0,0,0.5);
+}
+
+section.dialog-container .warn-box{
+	position:absolute;
+	top:50%;
+	left:50%;
+	z-index:100;
+	margin-top:-175px;
+	margin-left:-175px;
+	width:350px;
+	height:270px;
+	border-radius:6px;
+	background:#fff;
+}
+
+section.dialog-container .warn-box .btn-warn-close{
+	float:right;
+	margin:15px 15px 0 0;
+	width:20px;
+	height:20px;
+	background:url(../img/close.png)no-repeat center center;
+	background-size:100% 100%;
+	cursor:pointer;
+}
+
+section.dialog-container .warn-box .warn-img{
+	margin:0 auto;
+	margin-top:30px;
+	width:40px;
+	height:40px;
+	background:url(../img/warn.png)no-repeat center center;
+	background-size:100% 100%;
+}
+
+section.dialog-container .warn-box .text{
+	padding-top:10px;
+	margin-bottom:10px;
+	line-height:25px;
+	font-size:15px;
+	color:#333;
+	text-align:center;
+}
+
+section.dialog-container .warn-box .tip-box{
+	margin:0 auto;
+	padding:10px;
+	width:310px;
+	border-radius:4px;
+	background:#229834;
+	box-shadow: 0 0 10px 0 #666;
+}
+
+section.dialog-container .warn-box .tip-box .tip{
+	font-size:14px;
+	color:#fff;
+	line-height:24px;
+	letter-spacing:0.9px;
+	text-align:left;
+}
 
 /************************************End Video***********************************/
 section.end-video-container{
@@ -496,6 +565,29 @@ section.video-container .video-wrapper .big .default:before{
 	width:120px;
 	height:144px;
 	background:url(../img/m_person.png)no-repeat center center;
+	background-size:100% 100%;
+}
+
+section.video-container .video-wrapper .big .audio-layer{
+	position:relative;
+	float:left;
+	width:100%;
+	height:100%;
+	background:url(../img/m_video_bg.png)no-repeat center center;
+	background-size:100% 100%;
+}
+
+section.video-container .video-wrapper .big .audio-layer:before{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:50%;
+	z-index:60;
+	margin-top:-55px;
+	margin-left:-50px;
+	width:100px;
+	height:110px;
+	background:url(../img/audio_main.png)no-repeat center center;
 	background-size:100% 100%;
 }
 
@@ -1133,6 +1225,70 @@ section.video-container .video-wrapper .list ul.video-list li.video-item .video-
 		line-height: 28px;
 		font-size: 12px;
 	}
+
+
+	section.dialog-container .warn-box{
+		margin-top:-120px;
+		margin-left:-190px;
+		width:380px;
+		height:190px;
+	}
+
+	section.dialog-container .warn-box .warn-img{
+		margin-top: 20px;
+		width:30px;
+		height:30px;
+	}
+
+	section.dialog-container .warn-box .text{
+		font-size:13px;
+		padding-top:5px;
+		margin-bottom:5px;
+	}
+	
+	section.dialog-container .warn-box .tip-box{
+		width:310px;
+		padding:5px 20px;
+	}
+	
+	section.dialog-container .warn-box .tip-box .tip{
+		font-size:12px;
+		line-height:20px;
+	}
+
+}
+
+@media screen and (max-width:414px){
+	
+}
+
+@media screen and (max-width:384px){
+	section.dialog-container .warn-box{
+		margin-top:-175px;
+		margin-left:-165px;
+		width:330px;
+		height:270px;
+	}
+
+	section.dialog-container .warn-box .text{
+		font-size:13px;
+	}
+	
+	section.dialog-container .warn-box .tip-box{
+		width:280px;
+	}
+	
+	section.dialog-container .warn-box .tip-box .tip{
+		font-size:12px;
+	}
+}
+
+@media screen and (max-width:375px){
+	
+}
+
+@media screen and (max-width:360px){
+	
 }
 
 @media screen and (max-width:320px){
@@ -1185,6 +1341,14 @@ section.video-container .video-wrapper .list ul.video-list li.video-item .video-
 		position:relative;
 		width:100px;
 		height:40px;
+	}
+
+
+	section.dialog-container .warn-box{
+		margin-top:-175px;
+		margin-left:-150px;
+		width:300px;
+		height:270px;
 	}
 	
 }

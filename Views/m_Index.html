@@ -66,6 +66,21 @@
                 </div>
             </section>
 
+            <!-- Dialog -->
+            <section class="dialog-container" style="display:none;">
+                <div class="warn-box">
+                    <div class="btn-warn-close" id="btn-dialog-close"></div>
+                    <div class="warn-img"></div>
+                    <div class="text">您的浏览器暂不支持视频,为了更好的视频体验:</div>
+                    <div class="tip-box">
+                        <div class="tip">1. Windows系统请使用Chrome浏览器</div>
+                        <div class="tip">2. Mac系统请使用Safari浏览器</div>
+                        <div class="tip">3. IOS系统请使用Safari浏览器</div>
+                        <div class="tip">4. Android系统请下载使用Chrome浏览器</div>
+                    </div>
+                </div>
+            </section>
+
             <!-- End Video -->
             <section class="end-video-container" style="display:none;" v-show="endVideoKey">
                 <div class="warn-box">
@@ -103,6 +118,7 @@
                 <div class="video-wrapper clearbox">
                     <div class="big">
                         <div class="default"></div>
+                        <div class="audio-layer"></div>
                         <div class="audio-box audio-close">
                             <span class="icon icon-MaiKeFeng icon-open"></span>
                             <!-- <span class="icon icon-MaiKeFengGB icon-close"></span> -->
@@ -111,7 +127,7 @@
 
                         <!-- Big Video -->
                         <div id="videoBig">
-                            <video src="../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay" style="width:100%;height:100%;object-fit:cover;"></video>
+                            <!-- <video src="../Content/video/3.mp4" data-videotype="remote" autoplay="autoplay" style="width:100%;height:100%;object-fit:cover;"></video> -->
                         </div>
                     </div>
                     <div class="list clearbox" id="video-box">

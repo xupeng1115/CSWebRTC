@@ -95,5 +95,10 @@ $(function(){
             oEle.addClass("func-show");
         }
     })
+
+    //关闭dialog
+    $("body").on("click",".btn-dialog-close",function(){
+        $(".dialog-container").hide();
+    });
 });
 
